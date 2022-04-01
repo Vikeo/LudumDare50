@@ -8,9 +8,38 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scenes/Actors/Player/Player.gd"
+}, {
+"base": "State",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://Scenes/Actors/Player/PlayerState.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://Scenes/Actors/Player/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Scenes/Actors/Player/StateMachine.gd"
+} ]
+_global_script_class_icons={
+"Player": "",
+"PlayerState": "",
+"State": "",
+"StateMachine": ""
+}
+
 [application]
 
 config/name="LudumDare50"
+run/main_scene="res://Scenes/TestLevel.tscn"
 config/icon="res://icon.png"
 
 [physics]
