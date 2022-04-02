@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Actors/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Actors/Player/Idle.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Sprites/Player/Balloon.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Actors/Player/Jump.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Actors/Player/Fall.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Actors/Player/Win.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Actors/Player/PlayerBalloon.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -61,9 +60,6 @@ script = ExtResource( 8 )
 
 [node name="BufferTimer" type="Timer" parent="StateMachine/Fall"]
 wait_time = 0.25
-
-[node name="Win" type="Node" parent="StateMachine"]
-script = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -25 )

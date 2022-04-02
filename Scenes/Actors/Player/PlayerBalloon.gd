@@ -21,5 +21,6 @@ func _process(delta: float) -> void:
 	rotation_degrees = lerp(rotation_degrees, rotation_target, 10 * delta)
 
 func _on_Balloon_area_entered(_area: Area2D) -> void:
-	visible = false
-	popped = true
+	if _area.name == "Spike":
+		visible = false
+		popped = true
