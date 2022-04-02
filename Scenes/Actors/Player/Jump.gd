@@ -7,6 +7,7 @@ onready var min_timer : Timer = $MinimumTimer
 var exiting_jump = false
 
 func enter(msg = {}) -> void:
+	player.snap_vector = Vector2.ZERO
 	if msg.has("buffered_jump") and !msg.buffered_jump:
 		exiting_jump = true
 	else:
@@ -19,7 +20,7 @@ func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("player_jump"):
 		exiting_jump = true
 
-func physics_update(delta: float) -> void: 
+func physics_update(_delta: float) -> void: 
 	if exiting_jump and min_timer.is_stopped():
 		state_machine.transition_to("Fall")
 	if player.vertical_velocity != -player.jump_force:
