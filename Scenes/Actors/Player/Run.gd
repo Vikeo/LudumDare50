@@ -1,7 +1,8 @@
 #Run.gd
 extends PlayerState
 
-export var idle_limit:float = 10.0
+export var idle_limit:float = 1.0
+export var turn_limit:float = 20.0
 
 
 #func enter(_msg := {}) -> void:
@@ -14,16 +15,21 @@ func physics_update(delta: float) -> void:
 	# script to avoid duplicating these lines in every script.
 	
 	player.input_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
-	if player.input_vector.x != 0:
-		
-		player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.acceleration * delta)
+	if player.input_vector.x < 0:
+		if player.velocity.x > 20:
+			player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.friction * delta)
+		else:
+			player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.acceleration * delta)
+	elif player.input_vector.x >= 0:
+		if player.velocity.x < -20:
+			player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.friction * delta)
+		else:
+			player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.acceleration * delta)
 	else:
-		
 		player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta)
-		print(player.velocity.x)
 		
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	
-	if player.velocity.x < idle_limit and player.velocity.x > -idle_limit:
+	if player.velocity.x < idle_limit and player.velocity.x > -idle_limit and player.input_vector.x == 0:
 		state_machine.transition_to("Idle")
 
