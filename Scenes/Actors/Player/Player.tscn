@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Actors/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Actors/Player/Idle.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Actors/Player/StateMachine.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Player/BalloonMan.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Player/Balloon.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Actors/Player/RunNoBalloon.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -35,6 +36,13 @@ script = ExtResource( 2 )
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 turn_limit = 0.0
+
+[node name="RunNoBalloon" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+nb_turn_limit = 0.0
+nb_acceleration = 20.0
+nb_friction = 20.0
+nb_max_speed = 300.0
 
 [node name="Balloon" type="Area2D" parent="."]
 position = Vector2( 0, -50 )

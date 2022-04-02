@@ -26,9 +26,10 @@ func physics_update(delta: float) -> void:
 			player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.acceleration * delta)
 	else:
 		player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta)
-		
-	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	
 	if player.velocity.x < idle_limit and player.velocity.x > -idle_limit and player.input_vector.x == 0:
 		state_machine.transition_to("Idle")
+		
+	if Input.is_action_pressed("player_modifiy"):
+		state_machine.transition_to("RunNoBalloon")
 

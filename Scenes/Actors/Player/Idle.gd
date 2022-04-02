@@ -19,3 +19,7 @@ func update(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("player_left") or Input.is_action_just_pressed("player_right"):
 		state_machine.transition_to("Run")
+		
+	if Input.is_action_just_pressed("player_left") or Input.is_action_just_pressed("player_right"):
+		if Input.is_action_pressed("player_modifiy"):
+			state_machine.transition_to("RunNoBalloon")
