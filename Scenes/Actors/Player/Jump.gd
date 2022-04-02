@@ -8,6 +8,7 @@ var exiting_jump = false
 
 func enter(msg = {}) -> void:
 	player.snap_vector = Vector2.ZERO
+	
 	if msg.has("buffered_jump") and !msg.buffered_jump:
 		exiting_jump = true
 	else:

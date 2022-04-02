@@ -22,7 +22,7 @@ export var nb_max_speed:float = 300.0
 export var nb_jump_force:float = 500.0
 export var nb_max_gravity_force:float = 700.0
 
-export var nb_idle_limit:float = 1.0
+export var nb_idle_limit:float = 100.0
 export var nb_turn_limit:float = 20.0
 
 #Ballon exports
@@ -53,6 +53,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
 	velocity = move_and_slide_with_snap(velocity, snap_vector, Vector2.UP, true)
+	print(velocity)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if balloon.popped:
@@ -75,3 +77,9 @@ func _process(_delta: float) -> void:
 
 func apply_gravity(delta : float) -> void:
 	velocity.y = lerp(velocity.y, vertical_velocity, air_friction * delta)
+
+func update_snap_vector() -> void:
+	if is_on_floor():
+		snap_vector = -get_floor_normal()
+	else:
+		snap_vector = Vector2.ZERO

@@ -1,10 +1,8 @@
 #Idle.gd
 extends PlayerState
 
-
-
 func enter(_msg := {}) -> void:
-	player.snap_vector = Vector2.DOWN
+	player.update_snap_vector()
 	
 func update(_delta: float) -> void:
 	# If you have platforms that break when standing on them, you need that check for 

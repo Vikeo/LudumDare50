@@ -1,10 +1,13 @@
 #Run.gd
 extends PlayerState
 
-#func enter(_msg := {}) -> void:
-#	pass
-	
+func enter(_msg = {}) -> void:
+	pass
+
 func physics_update(delta: float) -> void:
+	
+	player.update_snap_vector()
+	
 	# We move the run-specific input code to the state.
 	# A good alternative would be to define a `get_input_direction()` function on the `Player.gd`
 	# script to avoid duplicating these lines in every script.
