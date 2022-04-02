@@ -5,7 +5,7 @@ export var acceleration:float = 10.0
 export var friction:float = 5.0
 export var max_speed:float = 500.0
 export var jump_force:float = 200.0
-export var gravity_force:float = 30.0
+export var gravity_force:float = 500.0
 
 var velocity:Vector2 = Vector2.ZERO
 var input_vector:Vector2 = Vector2.ZERO
