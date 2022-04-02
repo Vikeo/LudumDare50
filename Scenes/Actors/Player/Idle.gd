@@ -4,7 +4,6 @@ extends PlayerState
 func enter(_msg := {}) -> void:
 	player.velocity = Vector2.ZERO
 	
-	
 func update(delta: float) -> void:
 	# If you have platforms that break when standing on them, you need that check for 
 	# the character to fall.
