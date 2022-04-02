@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LudumDare50"
-run/main_scene="res://Scenes/TestLevel.tscn"
+run/main_scene="res://Scenes/Levels/1.tscn"
 config/icon="res://icon.png"
 
 [input]
