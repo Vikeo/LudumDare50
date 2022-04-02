@@ -112,10 +112,12 @@ position = Vector2( 3, -165 )
 current = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
 drag_margin_left = 0.25
 drag_margin_top = 0.7
 drag_margin_right = 0.25
-drag_margin_bottom = 0.7
+drag_margin_bottom = 0.0
 script = ExtResource( 9 )
 
 [connection signal="area_entered" from="Balloon" to="Balloon" method="_on_Balloon_area_entered"]
