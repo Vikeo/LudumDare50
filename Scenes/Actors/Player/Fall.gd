@@ -15,15 +15,17 @@ func physics_update(delta: float) -> void:
 	
 	if player.is_on_floor():
 		if wants_to_jump == true:
-			state_machine.transition_to("Jump")
+			if Input.is_action_pressed("player_jump"):
+				state_machine.transition_to("Jump", {buffered_jump = true})
+			else:
+				state_machine.transition_to("Jump", {buffered_jump = false})
 		else:
 			state_machine.transition_to("Idle")
 
 func handle_input(_event: InputEvent) -> void:
-	if Input.is_action_just_released("player_jump"):
+	if Input.is_action_just_pressed("player_jump"):
 		wants_to_jump = true
 		buffer_timer.start(player.jump_buffer_time)
-
 
 func _on_BufferTimer_timeout() -> void:
 	wants_to_jump = false
