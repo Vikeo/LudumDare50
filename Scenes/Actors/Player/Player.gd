@@ -17,10 +17,10 @@ export var turn_limit:float = 20.0
 #NoBalloon
 export var nb_acceleration:float = 20.0
 export var nb_friction:float = 20.0
-export var nb_air_friction:float = 1.0
+export var nb_air_friction:float = 5.0
 export var nb_max_speed:float = 300.0
-export var nb_jump_force:float = 200.0
-export var nb_max_gravity_force:float = 750.0
+export var nb_jump_force:float = 500.0
+export var nb_max_gravity_force:float = 700.0
 
 export var nb_idle_limit:float = 1.0
 export var nb_turn_limit:float = 20.0
@@ -30,6 +30,8 @@ export var balloon_growth_mod : float = 0.001
 
 #JumpExports
 export var jump_extension_limit : float = 0.5
+export var nb_jump_extension_limit : float = 0.1
+
 
 var velocity:Vector2 = Vector2.ZERO
 var input_vector:Vector2 = Vector2.ZERO
@@ -57,6 +59,7 @@ func _process(delta: float) -> void:
 		max_gravity_force = nb_max_gravity_force
 		idle_limit = nb_idle_limit
 		turn_limit = nb_turn_limit
+		jump_extension_limit = nb_jump_extension_limit
 		
 	input_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	

@@ -22,7 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	state.update(delta)
-	print(state)
+
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
 	
