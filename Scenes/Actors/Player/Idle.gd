@@ -1,6 +1,8 @@
 #Idle.gd
 extends PlayerState
 
+
+
 func enter(_msg := {}) -> void:
 	pass
 	
@@ -17,9 +19,6 @@ func update(delta: float) -> void:
 		state_machine.transition_to("Jump")
 		
 	if Input.is_action_pressed("player_left") or Input.is_action_pressed("player_right"):
-		if Input.is_action_pressed("player_modifiy"):
-			state_machine.transition_to("RunNoBalloon")
-		else:
 			state_machine.transition_to("Run")
 
 func physics_update(delta: float) -> void:

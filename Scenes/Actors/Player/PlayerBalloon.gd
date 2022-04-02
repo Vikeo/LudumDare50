@@ -3,6 +3,7 @@ extends Area2D
 onready var player : KinematicBody2D = get_parent()
 
 var rotation_offset : float = 0.0
+var popped:bool = false
 
 func _process(delta: float) -> void:
 	scale += Vector2.ONE * player.balloon_growth_mod
@@ -21,3 +22,4 @@ func _process(delta: float) -> void:
 
 func _on_Balloon_area_entered(area: Area2D) -> void:
 	visible = false
+	popped = true

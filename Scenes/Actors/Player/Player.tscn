@@ -8,7 +8,6 @@
 [ext_resource path="res://Sprites/Player/Balloon.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Actors/Player/Jump.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Actors/Player/Fall.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Actors/Player/RunNoBalloon.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Actors/Player/PlayerBalloon.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -16,10 +15,45 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 21.0
 
+[sub_resource type="GDScript" id=3]
+script/source = "#RunNoBalloon.gd
+extends PlayerState
+
+#func enter(_msg := {}) -> void:
+#	pass
+	
+func physics_update(delta: float) -> void:
+	# We move the run-specific input code to the state.
+	# A good alternative would be to define a `get_input_direction()` function on the `Player.gd`
+	# script to avoid duplicating these lines in every script.
+	
+	if Input.is_action_just_pressed(\"player_jump\"):
+		state_machine.transition_to(\"Jump\")
+		return
+	
+	if not player.is_on_floor():
+		state_machine.transition_to(\"Fall\")
+		return
+	
+	if player.input_vector.x < 0:
+		if player.velocity.x > -player.nb_turn_limit:
+			player.velocity.x = lerp(player.velocity.x, player.nb_max_speed * player.input_vector.x, player.nb_friction * delta)
+		else:
+			player.velocity.x = lerp(player.velocity.x, player.nb_max_speed * player.input_vector.x, player.nb_acceleration * delta)
+	elif player.input_vector.x >= 0:
+		if player.velocity.x < player.nb_turn_limit:
+			player.velocity.x = lerp(player.velocity.x, player.nb_max_speed * player.input_vector.x, player.nb_friction * delta)
+		else:
+			player.velocity.x = lerp(player.velocity.x, player.nb_max_speed * player.input_vector.x, player.nb_acceleration * delta)
+	else:
+		player.velocity.x = lerp(player.velocity.x, 0, player.nb_friction * delta)
+		if player.velocity.x < player.nb_idle_limit and player.velocity.x > -player.nb_idle_limit and player.input_vector.x == 0:
+			state_machine.transition_to(\"Idle\")
+		
+"
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-friction = 10.0
-jump_force = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -20 )
@@ -58,7 +92,7 @@ one_shot = true
 script = ExtResource( 8 )
 
 [node name="RunNoBalloon" type="Node" parent="StateMachine"]
-script = ExtResource( 9 )
+script = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -25 )
