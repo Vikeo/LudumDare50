@@ -21,11 +21,6 @@ script = ExtResource( 1 )
 friction = 10.0
 jump_force = 500.0
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -25 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 5 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -20 )
 shape = SubResource( 1 )
@@ -64,6 +59,11 @@ script = ExtResource( 8 )
 
 [node name="RunNoBalloon" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -25 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
 
 [connection signal="area_entered" from="Balloon" to="Balloon" method="_on_Balloon_area_entered"]
 [connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_JumpHoldTimer_timeout"]
