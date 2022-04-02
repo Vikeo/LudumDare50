@@ -11,12 +11,34 @@ extents = Vector2( 512, 16 )
 position = Vector2( 558, 303 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2( 0, 512 )
+position = Vector2( -1024, 512 )
 
 [node name="ColorRect" type="ColorRect" parent="Floor"]
 margin_right = 1024.0
 margin_bottom = 32.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 512, 16 )
+shape = SubResource( 1 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( 0, 512 )
+
+[node name="ColorRect" type="ColorRect" parent="Floor2"]
+margin_right = 1024.0
+margin_bottom = 32.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2( 512, 16 )
+shape = SubResource( 1 )
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+position = Vector2( 1024, 512 )
+
+[node name="ColorRect" type="ColorRect" parent="Floor3"]
+margin_right = 1024.0
+margin_bottom = 32.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
 position = Vector2( 512, 16 )
 shape = SubResource( 1 )

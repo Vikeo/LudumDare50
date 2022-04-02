@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Actors/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Actors/Player/Idle.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Actors/Player/Jump.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Actors/Player/Fall.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Actors/Player/RunNoBalloon.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Actors/Player/PlayerBalloon.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -19,7 +20,6 @@ radius = 21.0
 script = ExtResource( 1 )
 friction = 10.0
 jump_force = 500.0
-gravity_force = 300.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -25 )
@@ -30,6 +30,19 @@ texture = ExtResource( 5 )
 position = Vector2( 0, -20 )
 shape = SubResource( 1 )
 
+[node name="Balloon" type="Area2D" parent="."]
+position = Vector2( 0, -50 )
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="Balloon"]
+position = Vector2( 0, -22 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon"]
+position = Vector2( 0, -27 )
+shape = SubResource( 2 )
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
 initial_state = NodePath("Idle")
@@ -39,7 +52,6 @@ script = ExtResource( 2 )
 
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
-turn_limit = 0.0
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
@@ -52,21 +64,5 @@ script = ExtResource( 8 )
 
 [node name="RunNoBalloon" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
-nb_turn_limit = 0.0
-nb_acceleration = 20.0
-nb_friction = 20.0
-nb_max_speed = 300.0
-
-[node name="Balloon" type="Area2D" parent="."]
-position = Vector2( 0, -50 )
-
-[node name="Sprite" type="Sprite" parent="Balloon"]
-position = Vector2( 0, -22 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon"]
-position = Vector2( 0, -27 )
-shape = SubResource( 2 )
 
 [connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_JumpHoldTimer_timeout"]
