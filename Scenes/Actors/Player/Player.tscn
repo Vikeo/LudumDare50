@@ -96,6 +96,9 @@ one_shot = true
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
 
+[node name="BufferTimer" type="Timer" parent="StateMachine/Fall"]
+wait_time = 0.25
+
 [node name="RunNoBalloon" type="Node" parent="StateMachine"]
 script = SubResource( 3 )
 
@@ -118,3 +121,4 @@ script = ExtResource( 9 )
 [connection signal="area_entered" from="Balloon" to="Balloon" method="_on_Balloon_area_entered"]
 [connection signal="transitioned" from="StateMachine" to="PlayerCamera" method="_on_StateMachine_transitioned"]
 [connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_JumpHoldTimer_timeout"]
+[connection signal="timeout" from="StateMachine/Fall/BufferTimer" to="StateMachine/Fall" method="_on_BufferTimer_timeout"]

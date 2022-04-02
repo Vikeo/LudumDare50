@@ -32,6 +32,8 @@ export var balloon_growth_mod : float = 0.001
 export var jump_extension_limit : float = 0.5
 export var jump_minimum_limit : float = 0.1
 
+export var jump_buffer_time : float = 0.1
+
 export var nb_jump_extension_limit : float = 0.1
 
 
