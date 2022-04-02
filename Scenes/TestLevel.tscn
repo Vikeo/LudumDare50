@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Actors/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Spike.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Objects/Spike.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 512, 16 )
@@ -42,3 +44,7 @@ margin_bottom = 32.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
 position = Vector2( 512, 16 )
 shape = SubResource( 1 )
+
+[node name="Spike" parent="." instance=ExtResource( 3 )]
+position = Vector2( 785, 442 )
+script = ExtResource( 2 )

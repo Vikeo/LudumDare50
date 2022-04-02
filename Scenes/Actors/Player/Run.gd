@@ -31,7 +31,3 @@ func physics_update(delta: float) -> void:
 	
 	if player.velocity.x < player.idle_limit and player.velocity.x > -player.idle_limit and player.input_vector.x == 0:
 		state_machine.transition_to("Idle")
-		
-	if Input.is_action_pressed("player_modifiy"):
-		state_machine.transition_to("RunNoBalloon")
-
