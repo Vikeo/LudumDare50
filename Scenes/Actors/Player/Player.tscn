@@ -34,7 +34,7 @@ script = ExtResource( 2 )
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 
-[node name="Balloon" type="RigidBody2D" parent="."]
+[node name="Balloon" type="Area2D" parent="."]
 position = Vector2( 0, -50 )
 
 [node name="Sprite" type="Sprite" parent="Balloon"]

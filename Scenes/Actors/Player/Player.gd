@@ -1,9 +1,9 @@
 class_name Player
 extends KinematicBody2D
 
-export var acceleration:float = 0.5
-export var friction:float = 2.0
-export var max_speed:float = 2.0
+export var acceleration:float = 10.0
+export var friction:float = 5.0
+export var max_speed:float = 500.0
 export var jump_force:float = 200.0
 export var gravity_force:float = 30.0
 
