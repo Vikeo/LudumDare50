@@ -12,6 +12,10 @@ func physics_update(delta: float) -> void:
 	# We move the run-specific input code to the state.
 	# A good alternative would be to define a `get_input_direction()` function on the `Player.gd`
 	# script to avoid duplicating these lines in every script.
+	if Input.is_action_just_pressed("player_jump"):
+		# As we'll only have one air state for both jump and fall, we use the `msg` dictionary 
+		# to tell the next state that we want to jump.
+		state_machine.transition_to("Jump")
 	
 	player.input_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	if player.input_vector.x < 0:

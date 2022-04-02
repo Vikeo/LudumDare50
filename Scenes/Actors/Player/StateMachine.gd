@@ -14,6 +14,7 @@ func _ready() -> void:
 	
 	for child in get_children():
 		child.state_machine = self
+	
 	state.enter()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -24,7 +25,6 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
-	print(state)
 	
 	
 
