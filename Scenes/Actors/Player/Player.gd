@@ -24,6 +24,9 @@ export var nb_max_speed:float = 250.0
 export var nb_jump_force:float = 200.0
 export var nb_gravity_force:float = 30.0
 
+#Ballon exports
+export var balloon_growth_mod : float = 0.001
+
 #JumpExports
 export var jump_extension_limit : float = 0.5
 

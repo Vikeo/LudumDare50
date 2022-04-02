@@ -65,4 +65,5 @@ script = ExtResource( 8 )
 [node name="RunNoBalloon" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
 
+[connection signal="area_entered" from="Balloon" to="Balloon" method="_on_Balloon_area_entered"]
 [connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_JumpHoldTimer_timeout"]
