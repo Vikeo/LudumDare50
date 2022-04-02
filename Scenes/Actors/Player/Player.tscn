@@ -83,6 +83,5 @@ drag_margin_right = 0.25
 drag_margin_bottom = 0.0
 
 [connection signal="area_entered" from="Balloon" to="Balloon" method="_on_Balloon_area_entered"]
-[connection signal="transitioned" from="StateMachine" to="PlayerCamera" method="_on_StateMachine_transitioned"]
 [connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_JumpHoldTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Fall/BufferTimer" to="StateMachine/Fall" method="_on_BufferTimer_timeout"]

@@ -40,6 +40,7 @@ export var nb_jump_extension_limit : float = 0.1
 var velocity:Vector2 = Vector2.ZERO
 var input_vector:Vector2 = Vector2.ZERO
 var vertical_velocity:float = 0.0
+var snap_vector: Vector2 = Vector2.DOWN
 
 #onready var
 onready var sprite : Sprite = $Sprite
@@ -51,9 +52,9 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide_with_snap(velocity, snap_vector, Vector2.UP, true)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if balloon.popped:
 		acceleration = nb_acceleration
 		friction = nb_friction

@@ -5,10 +5,10 @@ var wants_to_jump: bool = false
 
 onready var buffer_timer : Timer = $BufferTimer
 
-func enter(msg = {}):
+func enter(_msg = {}):
 	wants_to_jump = false
 
-func physics_update(delta: float) -> void: 
+func physics_update(_delta: float) -> void: 
 	
 	if player.vertical_velocity != player.max_gravity_force:
 		player.vertical_velocity = player.max_gravity_force
