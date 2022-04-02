@@ -31,6 +31,9 @@ var velocity:Vector2 = Vector2.ZERO
 var input_vector:Vector2 = Vector2.ZERO
 var vertical_velocity:float = 0.0
 
+#onready var
+onready var sprite : Sprite = $Sprite
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vertical_velocity = max_gravity_force
@@ -40,7 +43,13 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	
+	input_vector.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
+	
+	if input_vector.x < 0:
+		sprite.flip_h = true
+	elif input_vector.x > 0:
+		sprite.flip_h = false
 
 func apply_gravity(delta : float) -> void:
 	velocity.y = lerp(velocity.y, vertical_velocity, air_friction * delta)
