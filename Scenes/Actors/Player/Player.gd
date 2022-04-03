@@ -27,6 +27,7 @@ export var nb_turn_limit:float = 20.0
 
 #Ballon exports
 export var balloon_growth_mod : float = 0.001
+export var base_color: Color = Color(1.5, 1.5, 0.5)
 
 #JumpExports
 export var jump_extension_limit : float = 0.5

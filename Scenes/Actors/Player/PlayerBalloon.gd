@@ -9,7 +9,9 @@ func _process(delta: float) -> void:
 	if scale.x >= 10 or scale.y >= 10:
 		popp_balloon()
 		
-	if popped == false:
+	if !popped:
+		set_balloon_color()
+		
 		scale += Vector2.ONE * player.balloon_growth_mod
 		
 		Globals.score += 1
@@ -33,4 +35,6 @@ func _on_Balloon_area_entered(_area: Area2D) -> void:
 func popp_balloon() -> void:
 	visible = false
 	popped = true
-	
+
+func set_balloon_color() -> void:
+	self.modulate = Color(player.base_color.r + (scale.x * 0.1), player.base_color.g - (scale.x * 0.05), player.base_color.b)
