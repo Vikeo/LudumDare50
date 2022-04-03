@@ -8,10 +8,10 @@ var rotation_offset : float = 0.0
 var popped:bool = false
 
 func _process(delta: float) -> void:
-	if scale.x >= 10 or scale.y >= 10:
-		popp_balloon()
-		
 	if !popped:
+		if scale.x >= 10 or scale.y >= 10:
+			popp_balloon()
+		
 		set_balloon_color()
 		
 		scale += Vector2.ONE * player.balloon_growth_mod
