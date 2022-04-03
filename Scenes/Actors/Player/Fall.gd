@@ -21,6 +21,7 @@ func physics_update(delta: float) -> void:
 				state_machine.transition_to("Jump", {buffered_jump = true})
 			else:
 				state_machine.transition_to("Jump", {buffered_jump = false})
+			
 		else:
 			player.update_snap_vector()
 			state_machine.transition_to("Idle")
