@@ -1,6 +1,8 @@
 #Fall.gd
 extends PlayerState
 
+const landing_sound : AudioStreamSample = preload("res://SoundFx/Land.wav")
+
 var wants_to_jump: bool = false
 
 onready var buffer_timer : Timer = $BufferTimer
@@ -22,6 +24,9 @@ func physics_update(delta: float) -> void:
 		else:
 			player.update_snap_vector()
 			state_machine.transition_to("Idle")
+		
+		player.add_sound_effect(landing_sound, -10, true)
+		return
 	
 	if player.input_vector.x != 0:
 		player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.air_friction * delta)

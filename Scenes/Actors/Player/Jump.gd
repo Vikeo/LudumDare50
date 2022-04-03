@@ -1,6 +1,8 @@
 #Jump.gd
 extends PlayerState
 
+const jumping_sound : AudioStreamSample = preload("res://SoundFx/Jump.wav")
+
 onready var timer : Timer = $JumpHoldTimer
 onready var min_timer : Timer = $MinimumTimer
 
@@ -16,6 +18,8 @@ func enter(msg = {}) -> void:
 	
 	timer.start(player.jump_extension_limit)
 	min_timer.start(player.jump_minimum_limit)
+	
+	player.add_sound_effect(jumping_sound, -10, true)
 
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("player_jump"):

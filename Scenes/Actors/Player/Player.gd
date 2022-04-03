@@ -1,6 +1,8 @@
 class_name Player
 extends KinematicBody2D
 
+const sound_effect_player = preload("res://Scenes/Effects/AudioEffect.tscn")
+
 #Player exports
 export var acceleration:float = 10.0
 export var friction:float = 5.0
@@ -50,6 +52,7 @@ onready var balloon : Area2D = $Balloon
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vertical_velocity = max_gravity_force
+	randomize()
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -94,6 +97,17 @@ func update_animation_speed(speed: float = 0.0) -> void:
 		sprite.speed_scale = speed
 		return
 	sprite.speed_scale = abs(velocity.x) * 0.002 + 0.5
+
+func add_sound_effect(sound_effect : AudioStreamSample, volume = 0, randomize_pitch = false) -> void:
+	var effect_node = sound_effect_player.instance()
+	effect_node.stream = sound_effect
+	effect_node.volume_db = volume
+	
+	if randomize_pitch:
+		var pitch_mod = (randf() - 0.5) * 0.5
+		effect_node.pitch_scale = 1 + pitch_mod
+	
+	add_child(effect_node)
 
 func _on_StateMachine_transitioned(state_name) -> void:
 	sprite.set_animation(state_name)
