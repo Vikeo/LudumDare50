@@ -7,4 +7,5 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_WinOrb_win() -> void:
-	popup.show()  
+	popup.show()
+	get_tree().paused = true
