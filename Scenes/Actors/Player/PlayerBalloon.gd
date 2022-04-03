@@ -35,6 +35,8 @@ func _process(delta: float) -> void:
 		rotation_degrees = lerp(rotation_degrees, rotation_target * scale_mod, 10 * delta)
 
 func _on_Balloon_area_entered(_area: Area2D) -> void:
+	if popped:
+		return
 	if _area.is_in_group("Spikes"):
 		popp_balloon()
 		

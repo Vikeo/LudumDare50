@@ -1,24 +1,6 @@
 extends Area2D
 
+export var deflate_value:float = 0.2
 
-#onready var
-onready var balloon : Area2D = $Balloon
-
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
-
-
-func _on_DeflateObject_body_entered(body: Node) -> void:
-	if body.is_in_group("Player"):
-		balloon.scale -= Vector2.ONE * 20
+func GetDeflateValue() -> float:
+	return deflate_value

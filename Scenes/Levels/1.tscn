@@ -148,5 +148,6 @@ position = Vector2( 1340, 486 )
 
 [node name="DeflateObject" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1777, 97 )
+deflate_value = 1.0
 
 [connection signal="body_entered" from="DeflateObject" to="Player" method="_on_DeflateObject_body_entered"]

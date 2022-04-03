@@ -2,6 +2,7 @@ class_name Player
 extends KinematicBody2D
 
 const sound_effect_player = preload("res://Scenes/Effects/AudioEffect.tscn")
+const deflate_sound : AudioStreamSample = preload("res://SoundFx/Shrink.wav")
 
 #Player exports
 export var acceleration:float = 10.0
@@ -48,6 +49,7 @@ var snap_vector: Vector2 = Vector2.DOWN
 #onready var
 onready var sprite : AnimatedSprite = $Sprite
 onready var balloon : Area2D = $Balloon
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -106,3 +108,17 @@ func add_sound_effect(sound_effect : AudioStreamSample, volume = 0, randomize_pi
 
 func _on_StateMachine_transitioned(state_name) -> void:
 	sprite.set_animation(state_name)
+	
+func _on_PickupArea_area_entered(area: Area2D) -> void:
+	if balloon.popped :
+		return
+	if area.is_in_group("Deflate"):
+		var deflate_mod:float = 0.0
+		if area.has_method("GetDeflateValue"):
+			deflate_mod = area.GetDeflateValue()
+		
+		balloon.scale.x = clamp(balloon.scale.x - 1 * deflate_mod, 0, 10)
+		balloon.scale.y = clamp(balloon.scale.y - 1 * deflate_mod, 0, 10)
+		
+		add_sound_effect(deflate_sound, -10, true)
+		area.queue_free()
