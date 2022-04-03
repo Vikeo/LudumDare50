@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Effects/AudioEffect.gd" type="Script" id=1]
+
+[node name="AudioEffect" type="AudioStreamPlayer"]
+autoplay = true
+script = ExtResource( 1 )
+
+[connection signal="finished" from="." to="." method="_on_AudioEffect_finished"]
