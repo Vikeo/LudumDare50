@@ -62,8 +62,9 @@ func _physics_process(delta: float) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reload_scene"):
-		get_tree().reload_current_scene()
-	
+		print(Globals.popped)
+		reset_scene()
+		
 	if Globals.popped:
 		acceleration = nb_acceleration
 		friction = nb_friction
@@ -113,8 +114,8 @@ func _on_StateMachine_transitioned(state_name) -> void:
 	
 func _on_Hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Death"):
-		get_tree().reload_current_scene()
-	if balloon.popped :
+		reset_scene()
+	if Globals.popped:
 		return
 	if area.is_in_group("Deflate"):
 		var deflate_mod:float = 0.0
@@ -126,3 +127,9 @@ func _on_Hitbox_area_entered(area: Area2D) -> void:
 		
 		add_sound_effect(deflate_sound, -10, true)
 		area.queue_free()
+
+func reset_scene() -> void:
+	Globals.popped = false
+	balloon.scale.x = 1
+	balloon.scale.y = 1
+	get_tree().reload_current_scene()
