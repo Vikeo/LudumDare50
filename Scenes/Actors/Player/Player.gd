@@ -109,7 +109,9 @@ func add_sound_effect(sound_effect : AudioStreamSample, volume = 0, randomize_pi
 func _on_StateMachine_transitioned(state_name) -> void:
 	sprite.set_animation(state_name)
 	
-func _on_PickupArea_area_entered(area: Area2D) -> void:
+func _on_Hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Death"):
+		get_tree().reload_current_scene()
 	if balloon.popped :
 		return
 	if area.is_in_group("Deflate"):

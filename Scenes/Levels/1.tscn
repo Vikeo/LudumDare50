@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Objects/Spike.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Levels/1.gd" type="Script" id=2]
@@ -13,6 +13,9 @@ extents = Vector2( 512, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 200, 16 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10000, 50 )
 
 [node name="TestLevel" type="Node"]
 script = ExtResource( 2 )
@@ -149,5 +152,11 @@ position = Vector2( 1340, 486 )
 [node name="DeflateObject" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1777, 97 )
 deflate_value = 1.0
+
+[node name="DeathFloor" type="Area2D" parent="." groups=["Death"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathFloor"]
+position = Vector2( 4423, 802 )
+shape = SubResource( 3 )
 
 [connection signal="body_entered" from="DeflateObject" to="Player" method="_on_DeflateObject_body_entered"]
