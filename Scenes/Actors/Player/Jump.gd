@@ -21,12 +21,15 @@ func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("player_jump"):
 		exiting_jump = true
 
-func physics_update(_delta: float) -> void: 
+func physics_update(delta: float) -> void: 
 	if exiting_jump and min_timer.is_stopped():
 		state_machine.transition_to("Fall")
 	if player.vertical_velocity != -player.jump_force:
 		player.vertical_velocity = -player.jump_force
 	player.velocity.y = player.vertical_velocity
+	
+	if player.input_vector.x != 0:
+		player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.air_friction * delta)
 
 func exit():
 	timer.stop()

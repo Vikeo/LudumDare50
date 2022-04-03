@@ -8,7 +8,7 @@ onready var buffer_timer : Timer = $BufferTimer
 func enter(_msg = {}):
 	wants_to_jump = false
 
-func physics_update(_delta: float) -> void: 
+func physics_update(delta: float) -> void: 
 	
 	if player.vertical_velocity != player.max_gravity_force:
 		player.vertical_velocity = player.max_gravity_force
@@ -22,6 +22,9 @@ func physics_update(_delta: float) -> void:
 		else:
 			player.update_snap_vector()
 			state_machine.transition_to("Idle")
+	
+	if player.input_vector.x != 0:
+		player.velocity.x = lerp(player.velocity.x, player.max_speed * player.input_vector.x, player.air_friction * delta)
 
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("player_jump"):
