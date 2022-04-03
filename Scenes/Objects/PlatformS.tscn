@@ -8,6 +8,7 @@ extents = Vector2( 100.5, 11.75 )
 [node name="PlatformS" type="StaticBody2D"]
 position = Vector2( 0, -15 )
 rotation = 2.98023e-08
+z_index = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2.38418e-07, 8 )

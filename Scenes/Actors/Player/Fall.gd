@@ -26,6 +26,7 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("Idle")
 		
 		player.add_sound_effect(landing_sound, -10, true)
+		player.add_landing_particle()
 		return
 	
 	if player.input_vector.x != 0:

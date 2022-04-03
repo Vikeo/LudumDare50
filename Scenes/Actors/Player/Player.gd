@@ -2,6 +2,8 @@ class_name Player
 extends KinematicBody2D
 
 const sound_effect_player = preload("res://Scenes/Effects/AudioEffect.tscn")
+const landing_particles = preload("res://Scenes/Effects/LandingSmoke.tscn")
+
 const deflate_sound : AudioStreamSample = preload("res://SoundFx/Shrink.wav")
 
 #Player exports
@@ -107,6 +109,11 @@ func add_sound_effect(sound_effect : AudioStreamSample, volume = 0, randomize_pi
 		effect_node.pitch_scale = 1 + pitch_mod
 	
 	add_child(effect_node)
+
+func add_landing_particle() -> void:
+	var particle = landing_particles.instance()
+	particle.position = position
+	get_parent().add_child(particle)
 
 func _on_StateMachine_transitioned(state_name) -> void:
 	sprite.set_animation(state_name)
