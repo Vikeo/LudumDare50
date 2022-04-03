@@ -530,3 +530,5 @@ position = Vector2( 0, 273 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathFloor"]
 position = Vector2( 4423, 995 )
 shape = SubResource( 3 )
+
+[connection signal="win" from="Level/WinOrb" to="GUI/Interface" method="_on_WinOrb_win"]
