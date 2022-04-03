@@ -8,7 +8,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 LevelButton = ExtResource( 1 )
-total_levels = 1
+total_levels = 2
 vbox = NodePath("VBoxContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
