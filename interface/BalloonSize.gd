@@ -7,6 +7,8 @@ var style = StyleBoxFlat.new()
 
 func _ready() -> void:
 	size_bar.add_stylebox_override("panel", style)
+	rect_rotation = 0
+	
 
 func _process(delta: float) -> void:
 	var modifier = Globals.balloon_size * 0.01
@@ -35,4 +37,4 @@ func shake_bar(modifier: float) -> void:
 
 func get_tween_values(modifier : float) -> Array:
 	var shake_value : float = rand_range(-1.0, 1.0) * (modifier * 2)
-	return [size_bar.rect_rotation, shake_value]
+	return [rect_rotation, shake_value]
