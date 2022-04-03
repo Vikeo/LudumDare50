@@ -64,7 +64,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reload_scene"):
 		get_tree().reload_current_scene()
 	
-	if balloon.popped:
+	if Globals.popped:
 		acceleration = nb_acceleration
 		friction = nb_friction
 		air_friction = nb_air_friction
