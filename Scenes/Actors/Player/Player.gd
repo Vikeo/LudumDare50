@@ -4,6 +4,7 @@ extends KinematicBody2D
 const sound_effect_player = preload("res://Scenes/Effects/AudioEffect.tscn")
 const landing_particles = preload("res://Scenes/Effects/LandingSmoke.tscn")
 
+
 const deflate_sound : AudioStreamSample = preload("res://SoundFx/Shrink.wav")
 
 #Player exports
@@ -55,6 +56,9 @@ onready var balloon : Area2D = $Balloon
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vertical_velocity = max_gravity_force
+	Globals.popped = false
+	balloon.scale.x = 1
+	balloon.scale.y = 1
 	randomize()
 
 func _physics_process(delta: float) -> void:
@@ -135,7 +139,4 @@ func _on_Hitbox_area_entered(area: Area2D) -> void:
 		area.queue_free()
 
 func reset_scene() -> void:
-	Globals.popped = false
-	balloon.scale.x = 1
-	balloon.scale.y = 1
 	get_tree().reload_current_scene()

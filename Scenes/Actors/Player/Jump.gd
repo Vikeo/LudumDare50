@@ -20,6 +20,7 @@ func enter(msg = {}) -> void:
 	min_timer.start(player.jump_minimum_limit)
 	
 	player.add_sound_effect(jumping_sound, -10, true)
+	player.add_landing_particle()
 
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("player_jump"):
