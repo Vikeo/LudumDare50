@@ -100,7 +100,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -20 )
 shape = SubResource( 1 )
 
-[node name="Balloon" type="Area2D" parent="."]
+[node name="Balloon" type="Area2D" parent="." groups=["Player"]]
 modulate = Color( 0.784314, 0.784314, 0.196078, 1 )
 position = Vector2( 0, -50 )
 script = ExtResource( 10 )

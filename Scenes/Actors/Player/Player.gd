@@ -77,11 +77,6 @@ func _process(_delta: float) -> void:
 
 func apply_gravity(delta : float) -> void:
 	velocity.y = lerp(velocity.y, vertical_velocity, air_friction * delta)
-
-func _on_WinOrb_body_entered(_area: Area2D):
-	Globals.final_score = Globals.score
-	print("Win!")
-	print(Globals.final_score)
 	
 func update_snap_vector() -> void:
 	if is_on_floor():
