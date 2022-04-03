@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Objects/Spike.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Levels/1.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Objects/Spike.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Actors/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Objects/WinOrb.tscn" type="PackedScene" id=5]
@@ -14,7 +13,6 @@
 extents = Vector2( 10000, 50 )
 
 [node name="TestLevel" type="Node"]
-script = ExtResource( 2 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -83,10 +81,11 @@ position = Vector2( 824, 512 )
 position = Vector2( 1687, -207 )
 
 [node name="PlatformM9" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2516, 361 )
+position = Vector2( 2564, 455 )
+rotation = 0.733038
 
 [node name="PlatformM10" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2516, 361 )
+position = Vector2( 3118, 391 )
 
 [node name="PlatformM11" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3698, 52 )
@@ -95,7 +94,8 @@ position = Vector2( 3698, 52 )
 position = Vector2( 3248, 154 )
 
 [node name="PlatformM13" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2813, 253 )
+position = Vector2( 2745, 161 )
+rotation = -0.459022
 
 [node name="Spike" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1077, 203 )
@@ -132,7 +132,7 @@ z_index = -1
 script = ExtResource( 1 )
 
 [node name="WinOrb" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2115, 311 )
+position = Vector2( 3587, 23 )
 
 [node name="DeflateObject" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1240, 493 )

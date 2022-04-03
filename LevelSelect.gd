@@ -5,6 +5,8 @@ export (int) var total_levels = 0
 export (NodePath) var vbox
 
 func _ready():
+	Engine.set_target_fps(Engine.get_iterations_per_second())
+	Globals.score = 0
 	vbox = get_node(vbox)
 	
 	if !total_levels <= 4:
