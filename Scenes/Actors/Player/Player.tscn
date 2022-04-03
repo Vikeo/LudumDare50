@@ -17,7 +17,6 @@ radius = 21.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-nb_jump_extension_limit = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -20 )

@@ -42,6 +42,10 @@ config/name="LudumDare50"
 run/main_scene="res://Scenes/Levels/1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://globals.gd"
+
 [input]
 
 player_jump={
