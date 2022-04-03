@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://interface/theme/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://interface/theme/title_theme.tres" type="Theme" id=1]
 [ext_resource path="res://interface/ScoreNumber.gd" type="Script" id=2]
 
 [node name="Score" type="NinePatchRect"]

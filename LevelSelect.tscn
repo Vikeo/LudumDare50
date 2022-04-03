@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/LevelButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelSelect.gd" type="Script" id=2]
+[ext_resource path="res://interface/theme/default_theme.tres" type="Theme" id=3]
+[ext_resource path="res://interface/theme/title_theme.tres" type="Theme" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -9,18 +11,43 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 LevelButton = ExtResource( 1 )
 total_levels = 2
-vbox = NodePath("VBoxContainer")
+levelBox = NodePath("VBoxContainer/LevelContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.25
-anchor_right = 0.75
+anchor_top = 0.223
+anchor_right = 0.789
 anchor_bottom = 1.0
-margin_right = 40.0
+margin_top = -97.8
+margin_right = 0.0639648
 margin_bottom = 40.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 552.0
-margin_bottom = 31.0
-text = "Choose a Level
-"
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_right = 617.0
+margin_bottom = 134.0
+theme = ExtResource( 4 )
+text = "Balloon-Man 
+And the Incredible Balloon"
 align = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 138.0
+margin_right = 617.0
+margin_bottom = 179.0
+theme = ExtResource( 3 )
+text = "Choose a Level"
+align = 1
+
+[node name="LevelContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 183.0
+margin_right = 617.0
+margin_bottom = 183.0
+
+[node name="RichTextLabel" type="Label" parent="VBoxContainer"]
+margin_top = 187.0
+margin_right = 617.0
+margin_bottom = 218.0
+text = "Help Balloon-Man reach the fabled \"Golden inflatable\". Delay the inevitable burst of his beloved balloon by finding straws spread across the clouds in the sky."
+align = 1
+valign = 1
+autowrap = true
