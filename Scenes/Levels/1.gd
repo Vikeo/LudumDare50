@@ -9,7 +9,6 @@ func _ready() -> void:
 	Engine.set_target_fps(Engine.get_iterations_per_second())
 	Globals.score = 0
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass

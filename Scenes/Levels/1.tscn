@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Objects/Spike.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Levels/1.gd" type="Script" id=2]
@@ -7,12 +7,11 @@
 [ext_resource path="res://Scenes/Objects/WinOrb.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/DeflateObject.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Objects/PlatformM.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/PlatformS.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 512, 16 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 200, 16 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10000, 50 )
@@ -25,7 +24,7 @@ script = ExtResource( 2 )
 [node name="Interface" parent="GUI" instance=ExtResource( 6 )]
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 4 )]
-position = Vector2( 513, 491 )
+position = Vector2( 131, 497 )
 balloon_growth_mod = 0.011
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -53,91 +52,35 @@ margin_bottom = 32.0
 position = Vector2( 512, 16 )
 shape = SubResource( 1 )
 
-[node name="Floor3" type="StaticBody2D" parent="."]
-position = Vector2( 1024, 512 )
+[node name="PlatformS" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1029, 192 )
 
-[node name="ColorRect" type="ColorRect" parent="Floor3"]
-margin_right = 1024.0
-margin_bottom = 32.0
+[node name="PlatformS2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 757, 294 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
-position = Vector2( 512, 16 )
-shape = SubResource( 1 )
+[node name="PlatformS3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1866, 183 )
 
-[node name="Floor4" type="StaticBody2D" parent="."]
-position = Vector2( 2048, 512 )
+[node name="PlatformS4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1614, 589 )
 
-[node name="ColorRect" type="ColorRect" parent="Floor4"]
-margin_right = 1024.0
-margin_bottom = 32.0
+[node name="PlatformM" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1405, 97 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4"]
-position = Vector2( 512, 16 )
-shape = SubResource( 1 )
+[node name="PlatformM4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1405, 97 )
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2( 1186, 218 )
+[node name="PlatformM2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2239, 483 )
 
-[node name="ColorRect" type="ColorRect" parent="Platform"]
-margin_left = -200.0
-margin_right = 200.0
-margin_bottom = 32.0
+[node name="PlatformM3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1095, 398 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2( 0, 16 )
-shape = SubResource( 2 )
-
-[node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2( 1024, 398 )
-
-[node name="ColorRect" type="ColorRect" parent="Platform2"]
-margin_left = -200.0
-margin_right = 200.0
-margin_bottom = 32.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-position = Vector2( 0, 16 )
-shape = SubResource( 2 )
-
-[node name="Platform4" type="StaticBody2D" parent="."]
-position = Vector2( 1423, 398 )
-
-[node name="ColorRect" type="ColorRect" parent="Platform4"]
-margin_left = -200.0
-margin_right = 200.0
-margin_bottom = 32.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
-position = Vector2( 0, 16 )
-shape = SubResource( 2 )
-
-[node name="Platform3" type="StaticBody2D" parent="."]
-position = Vector2( 1805, 97 )
-
-[node name="ColorRect" type="ColorRect" parent="Platform3"]
-margin_left = -200.0
-margin_right = 200.0
-margin_bottom = 32.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
-position = Vector2( 0, 16 )
-shape = SubResource( 2 )
-
-[node name="Platform5" type="StaticBody2D" parent="."]
-position = Vector2( 1186, 218 )
-rotation = 2.98023e-08
-
-[node name="ColorRect" type="ColorRect" parent="Platform5"]
-margin_left = -200.0
-margin_right = 200.0
-margin_bottom = 32.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5"]
-position = Vector2( 0, 16 )
-shape = SubResource( 2 )
+[node name="PlatformM5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1224, 512 )
 
 [node name="Spike" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1009, 250 )
+position = Vector2( 1037, 224 )
 rotation = 3.14159
 script = ExtResource( 1 )
 
@@ -146,11 +89,16 @@ position = Vector2( 1199, 430 )
 rotation = 3.14159
 script = ExtResource( 1 )
 
+[node name="Spike3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1605, 114 )
+rotation = 1.5708
+script = ExtResource( 1 )
+
 [node name="WinOrb" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1340, 486 )
+position = Vector2( 2346, 468 )
 
 [node name="DeflateObject" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1777, 97 )
+position = Vector2( 1262, 511 )
 deflate_value = 1.0
 
 [node name="DeathFloor" type="Area2D" parent="." groups=["Death"]]
