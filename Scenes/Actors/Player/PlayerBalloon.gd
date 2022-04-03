@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 		scale += Vector2.ONE * player.balloon_growth_mod
 		
 		Globals.score += 1
+		Globals.balloon_size = scale.x
+		
 		
 		if Input.is_action_just_released("player_left") or Input.is_action_just_released("player_right"):
 			if( player.velocity.x > 0):
