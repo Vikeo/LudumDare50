@@ -18,7 +18,8 @@ func _process(delta: float) -> void:
 	scale += Vector2.ONE * player.balloon_growth_mod
 	
 	Globals.add_score()
-	Globals.set_balloon_size(scale.x)
+	Globals.set_balloon_size((clamp(scale.x - 1, 0, 9) / 9) * 100)
+
 	
 	
 	if Input.is_action_just_released("player_left") or Input.is_action_just_released("player_right"):

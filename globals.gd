@@ -12,7 +12,7 @@ func reset_score() -> void:
 	score = 0
 
 func set_balloon_size(size : float):
-	balloon_size = size
+	balloon_size = size 
 
 func reset_balloon_size() -> void:
 	balloon_size = 1

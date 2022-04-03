@@ -62,7 +62,6 @@ func _physics_process(delta: float) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reload_scene"):
-		print(Globals.popped)
 		reset_scene()
 		
 	if Globals.popped:
@@ -122,8 +121,8 @@ func _on_Hitbox_area_entered(area: Area2D) -> void:
 		if area.has_method("GetDeflateValue"):
 			deflate_mod = area.GetDeflateValue()
 		
-		balloon.scale.x = clamp(balloon.scale.x - 1 * deflate_mod, 0, 10)
-		balloon.scale.y = clamp(balloon.scale.y - 1 * deflate_mod, 0, 10)
+		balloon.scale.x = clamp(balloon.scale.x - 1 * deflate_mod, 1, 10)
+		balloon.scale.y = clamp(balloon.scale.y - 1 * deflate_mod, 1, 10)
 		
 		add_sound_effect(deflate_sound, -10, true)
 		area.queue_free()

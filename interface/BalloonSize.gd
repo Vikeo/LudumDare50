@@ -9,7 +9,7 @@ func _ready() -> void:
 	size_bar.add_stylebox_override("panel", style)
 
 func _process(delta: float) -> void:
-	var modifier = clamp(Globals.balloon_size, 0, 10) * 0.1
+	var modifier = Globals.balloon_size * 0.01
 	set_bar_scale(modifier)
 	set_bar_color(modifier)
 	if modifier > 0.5:
