@@ -46,4 +46,4 @@ func popp_balloon() -> void:
 	player.add_sound_effect(burst_sound)
 
 func set_balloon_color() -> void:
-	self.modulate = Color(player.base_color.r + (scale.x * 0.1), player.base_color.g - (scale.x * 0.05), player.base_color.b)
+	self.modulate = Color(player.base_color.r + (scale.x * 0.5), player.base_color.g - (scale.x * 0.1), player.base_color.b)
