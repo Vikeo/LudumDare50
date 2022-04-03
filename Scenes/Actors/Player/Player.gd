@@ -89,5 +89,11 @@ func update_snap_vector() -> void:
 	else:
 		snap_vector = Vector2.ZERO
 
+func update_animation_speed(speed: float = 0.0) -> void:
+	if speed != 0.0:
+		sprite.speed_scale = speed
+		return
+	sprite.speed_scale = abs(velocity.x) * 0.002 + 0.5
+
 func _on_StateMachine_transitioned(state_name) -> void:
 	sprite.set_animation(state_name)

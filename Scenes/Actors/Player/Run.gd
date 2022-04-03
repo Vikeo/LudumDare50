@@ -5,7 +5,7 @@ func enter(_msg = {}) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	
+	player.update_animation_speed()
 	player.update_snap_vector()
 	
 	# We move the run-specific input code to the state.
