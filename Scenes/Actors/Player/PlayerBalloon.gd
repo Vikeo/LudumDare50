@@ -1,5 +1,7 @@
 extends Area2D
 
+const burst_sound : AudioStreamSample = preload("res://SoundFx/Burst.wav")
+
 onready var player : KinematicBody2D = get_parent()
 
 var rotation_offset : float = 0.0
@@ -39,6 +41,7 @@ func _on_Balloon_area_entered(_area: Area2D) -> void:
 func popp_balloon() -> void:
 	visible = false
 	popped = true
+	player.add_sound_effect(burst_sound)
 
 func set_balloon_color() -> void:
 	self.modulate = Color(player.base_color.r + (scale.x * 0.1), player.base_color.g - (scale.x * 0.05), player.base_color.b)
