@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Actors/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Actors/Player/Idle.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Actors/Player/Run.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Actors/Player/StateMachine.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/Player/BalloonMan.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/BalloonManSheet.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Player/Balloon.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Actors/Player/Jump.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Actors/Player/Fall.gd" type="Script" id=8]
@@ -14,6 +14,84 @@
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 21.0
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 512, 1024, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 1024, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 512, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 512, 512, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1024, 512, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1536, 512, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 1024, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 512, 1024, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1024, 1024, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1536, 1024, 512, 512 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -61,10 +139,12 @@ script = ExtResource( 8 )
 [node name="BufferTimer" type="Timer" parent="StateMachine/Fall"]
 wait_time = 0.25
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -25 )
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 5 )
+frames = SubResource( 14 )
+animation = "Idle"
+playing = true
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 position = Vector2( 3, -165 )
@@ -79,5 +159,6 @@ drag_margin_right = 0.25
 drag_margin_bottom = 0.0
 
 [connection signal="area_entered" from="Balloon" to="Balloon" method="_on_Balloon_area_entered"]
+[connection signal="transitioned" from="StateMachine" to="." method="_on_StateMachine_transitioned"]
 [connection signal="timeout" from="StateMachine/Jump/JumpHoldTimer" to="StateMachine/Jump" method="_on_JumpHoldTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Fall/BufferTimer" to="StateMachine/Fall" method="_on_BufferTimer_timeout"]

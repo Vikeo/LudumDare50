@@ -43,7 +43,7 @@ var vertical_velocity:float = 0.0
 var snap_vector: Vector2 = Vector2.DOWN
 
 #onready var
-onready var sprite : Sprite = $Sprite
+onready var sprite : AnimatedSprite = $Sprite
 onready var balloon : Area2D = $Balloon
 
 # Called when the node enters the scene tree for the first time.
@@ -87,3 +87,6 @@ func update_snap_vector() -> void:
 		snap_vector = -get_floor_normal()
 	else:
 		snap_vector = Vector2.ZERO
+
+func _on_StateMachine_transitioned(state_name) -> void:
+	sprite.set_animation(state_name)
