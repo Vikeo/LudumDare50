@@ -26,7 +26,10 @@ func _process(delta: float) -> void:
 			
 		var rotation_target = -(player.velocity.x * 0.15) + rotation_offset
 		
-		rotation_degrees = lerp(rotation_degrees, rotation_target, 10 * delta)
+		var scale_mod = clamp(1 - (scale.x * 0.1), 0, 1)
+		print(scale_mod)
+		
+		rotation_degrees = lerp(rotation_degrees, rotation_target * scale_mod, 10 * delta)
 
 func _on_Balloon_area_entered(_area: Area2D) -> void:
 	if _area.is_in_group("Spikes"):

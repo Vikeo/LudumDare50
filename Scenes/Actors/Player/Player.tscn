@@ -15,21 +15,6 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 21.0
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 512, 1024, 512, 512 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 512, 512 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 1024, 512, 512 )
-
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 5 )
@@ -70,8 +55,28 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 1536, 1024, 512, 512 )
 
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 512, 1024, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 1024, 512, 512 )
+
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
 "frames": [ SubResource( 3 ) ],
 "loop": true,
 "name": "Fall",
@@ -86,11 +91,6 @@ animations = [ {
 "loop": true,
 "name": "Jump",
 "speed": 0.0
-}, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": true,
-"name": "Run",
-"speed": 10.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
