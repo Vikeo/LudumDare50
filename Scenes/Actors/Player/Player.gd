@@ -1,6 +1,8 @@
 class_name Player
 extends KinematicBody2D
 
+const level_select_path = ("res://LevelSelect.tscn")
+
 const sound_effect_player = preload("res://Scenes/Effects/AudioEffect.tscn")
 const landing_particles = preload("res://Scenes/Effects/LandingSmoke.tscn")
 
@@ -57,6 +59,7 @@ onready var balloon : Area2D = $Balloon
 func _ready():
 	vertical_velocity = max_gravity_force
 	Globals.popped = false
+	Globals.reset_score()
 	balloon.scale.x = 1
 	balloon.scale.y = 1
 	randomize()
@@ -69,6 +72,9 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reload_scene"):
 		reset_scene()
+		
+	if Input.is_action_just_pressed("go_to_level_select"):
+		get_tree().change_scene(level_select_path)
 		
 	if Globals.popped:
 		acceleration = nb_acceleration
