@@ -2,7 +2,7 @@
 
 Help Balloon-Man reach the fabled "Golden inflatable". Delay the inevitable burst of his beloved balloon by finding straws spread across the clouds in the sky.
 
-Game for [Ludum Dare 50](https://ldjam.com/events/ludum-dare/50).\
+A game for [Ludum Dare 50](https://ldjam.com/events/ludum-dare/50).\
 By [Viktor Rådberg](https://github.com/Vikeo) and [Tobias Källkvist](https://github.com/tobkal-iths).
 \
 \
