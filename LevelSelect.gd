@@ -11,14 +11,15 @@ func _ready():
 	
 	for i in range(0, total_levels):
 		generate_buttons(i + 1)
-		
+	
+	if levelBox.get_child_count() > 0:
+		levelBox.get_children()[0].grab_focus()
+
 func generate_buttons(name : int):
 	var ls = LevelButton.instance()
 	ls.set_name(str(name))
 	ls.set_text(str(name))
 	ls.level_path = ("res://Scenes/Levels/" + str(name) + ".tscn")
-	print(ls.level_path)
-	print(ls)
 	levelBox.add_child(ls)
 	
 func column_size():

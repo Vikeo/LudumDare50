@@ -41,4 +41,5 @@ text = "You Win!"
 align = 1
 valign = 1
 
+[connection signal="draw" from="." to="." method="_on_WinText_show"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

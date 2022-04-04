@@ -1,9 +1,11 @@
-[gd_resource type="Theme" load_steps=2 format=2]
+[gd_resource type="Theme" load_steps=3 format=2]
 
 [ext_resource path="res://interface/font/default_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/theme/button_focus_override.tres" type="StyleBox" id=2]
 
 [resource]
 default_font = ExtResource( 1 )
+Button/styles/focus = ExtResource( 2 )
 Label/colors/font_color = Color( 0, 0, 0, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 Label/colors/font_outline_modulate = Color( 0, 0, 0, 1 )

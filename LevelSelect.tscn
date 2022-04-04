@@ -1,14 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/LevelButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelSelect.gd" type="Script" id=2]
 [ext_resource path="res://interface/theme/default_theme.tres" type="Theme" id=3]
 [ext_resource path="res://interface/theme/title_theme.tres" type="Theme" id=4]
 [ext_resource path="res://interface/font/title_font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://interface/font/Cantarell-Regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+use_filter = true
+font_data = ExtResource( 6 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 2 )
 LevelButton = ExtResource( 1 )
 total_levels = 2
@@ -48,8 +55,9 @@ margin_bottom = 183.0
 [node name="RichTextLabel" type="Label" parent="VBoxContainer"]
 margin_top = 187.0
 margin_right = 819.0
-margin_bottom = 218.0
+margin_bottom = 274.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Help Balloon-Man reach the fabled \"Golden inflatable\". Delay the inevitable burst of his beloved balloon by finding straws spread across the clouds in the sky."
 align = 1
 valign = 1
