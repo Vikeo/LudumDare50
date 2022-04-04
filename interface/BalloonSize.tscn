@@ -10,6 +10,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="BalloonSize" type="Container"]
+pause_mode = 1
 anchor_left = 0.25
 anchor_right = 0.75
 anchor_bottom = 1.0

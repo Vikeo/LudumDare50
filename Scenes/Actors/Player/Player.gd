@@ -54,7 +54,6 @@ var snap_vector: Vector2 = Vector2.DOWN
 #onready var
 onready var sprite : AnimatedSprite = $Sprite
 onready var balloon : Area2D = $Balloon
-onready var interface = $Interface
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,7 +70,7 @@ func _physics_process(delta: float) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("reload_scene"):
+	if Input.is_action_just_pressed("debug_reload"):
 		reset_scene()
 		
 	if Globals.popped:

@@ -22,6 +22,11 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 1024, 512, 512 )
 
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 512, 512 )
+
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 5 )
@@ -62,11 +67,6 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 1536, 1024, 512, 512 )
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 512, 512 )
-
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 5 )
@@ -79,15 +79,15 @@ animations = [ {
 "name": "Jump",
 "speed": 0.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": true,
-"name": "Run",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 0.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
 }, {
 "frames": [ SubResource( 3 ) ],
 "loop": true,

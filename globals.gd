@@ -4,6 +4,7 @@ var popped : bool = false
 var score = 0
 var final_score = 0
 var balloon_size:float = 0.0
+var win:bool = false
 
 func add_score(amount : int = 1):
 	score += amount
